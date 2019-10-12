@@ -45,11 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84b36a25efd09b4286cfc1a38eb8672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PowerRange: {x: 900, y: 900}
   Power: 900
+  InitialPower: 900
   PowerRatio: 0.01
   EffectiveRange: 50
   MoveSpeedRatio: 0.25
   TargetCheckRadius: 12000
+  ScaleShrinkRatioRange: {x: 8, y: 16}
 --- !u!1001 &3558621231233389630
 PrefabInstance:
   m_ObjectHideFlags: 0
