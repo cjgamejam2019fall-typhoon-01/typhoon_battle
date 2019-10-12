@@ -7,17 +7,26 @@ namespace Apps.HID.ActionsManagement.Components
     {
         Maps.GameMap _GameMap;
 
-        protected abstract void OnRotationTrigger(InputAction.CallbackContext context);
+        protected virtual void OnRotationTrigger(InputAction.CallbackContext context) { }
         void InputActions.IGameActions.OnRotationTrigger(InputAction.CallbackContext context) => OnRotationTrigger(context);
 
-        protected abstract void OnRotationX(InputAction.CallbackContext context);
+        protected virtual void OnRotationX(InputAction.CallbackContext context) { }
         void InputActions.IGameActions.OnRotationX(InputAction.CallbackContext context) => OnRotationX(context);
 
-        protected abstract void OnRotationY(InputAction.CallbackContext context);
+        protected virtual void OnRotationY(InputAction.CallbackContext context) { }
         void InputActions.IGameActions.OnRotationY(InputAction.CallbackContext context) => OnRotationY(context);
 
-        protected abstract void OnZoom(InputAction.CallbackContext context);
+        protected virtual void OnZoom(InputAction.CallbackContext context) { }
         void InputActions.IGameActions.OnZoom(InputAction.CallbackContext context) => OnZoom(context);
+
+        protected virtual void OnRespawn(InputAction.CallbackContext context) { }
+        void InputActions.IGameActions.OnRespawn(InputAction.CallbackContext context) => OnRespawn(context);
+
+        protected virtual void OnMousePositionX(InputAction.CallbackContext context) { }
+        void InputActions.IGameActions.OnMousePositionX(InputAction.CallbackContext context) => OnMousePositionX(context);
+
+        protected virtual void OnMousePositionY(InputAction.CallbackContext context) { }
+        void InputActions.IGameActions.OnMousePositionY(InputAction.CallbackContext context) => OnMousePositionY(context);
 
         void Start()
         {
