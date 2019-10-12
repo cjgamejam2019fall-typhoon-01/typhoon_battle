@@ -7,6 +7,7 @@ namespace Skuld.Core.CustomProjectSettings
     public class SettingsObject<T> : ScriptableObject
         where T : ScriptableObject
     {
+#if UNITY_EDITOR
         public static T GetOrCreate(string settingsName)
         {
             var dir = "Assets/CustomProjectSettings/Resources/";
@@ -28,10 +29,13 @@ namespace Skuld.Core.CustomProjectSettings
 
             return settings;
         }
+#endif
 
+#if UNITY_EDITOR
         public static SerializedObject GetSerializedObject()
         {
             return new SerializedObject(GetOrCreate(typeof(T).Name));
         }
+#endif
     }
 }

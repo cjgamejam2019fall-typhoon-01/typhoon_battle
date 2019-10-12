@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 namespace Skuld.Core.CustomProjectSettings.Editor
 {
     public class ApplicationSettingsProvider : SettingsProvider<ApplicationSettings, ApplicationSettingsProvider>
@@ -17,7 +18,6 @@ namespace Skuld.Core.CustomProjectSettings.Editor
 
         protected override void OnGUIHeader()
         {
-#if UNITY_EDITOR
             var lang = Skuld.Core.Localization.GetEditorLanguage();
             //string message = "";
             switch (lang)
@@ -29,13 +29,11 @@ namespace Skuld.Core.CustomProjectSettings.Editor
             }
 
             //EditorGUILayout.HelpBox(message, MessageType.Info);
-#endif
         }
 
         protected override void OnGUIFooter()
         {
-#if UNITY_EDITOR
-#endif
         }
     }
 }
+#endif

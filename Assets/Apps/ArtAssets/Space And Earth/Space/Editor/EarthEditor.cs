@@ -3,6 +3,7 @@
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
 namespace DigitalRuby.Earth
 {
     [CustomEditor(typeof(EarthScript))]
@@ -54,3 +55,4 @@ namespace DigitalRuby.Earth
 
     }
 }
+#endif

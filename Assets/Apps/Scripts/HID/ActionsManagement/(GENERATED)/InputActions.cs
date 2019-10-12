@@ -80,7 +80,7 @@ namespace Apps.HID.ActionsManagement
                 {
                     ""name"": """",
                     ""id"": ""2c9d39da-ba0f-40d7-874b-51082e5db4a9"",
-                    ""path"": ""<Mouse>/middleButton"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

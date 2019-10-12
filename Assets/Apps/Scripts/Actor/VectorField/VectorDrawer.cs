@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Apps.Actor.Earth
+namespace Apps.Actor.VectorField
 {
     public class VectorDrawer : MonoBehaviour
     {
@@ -21,6 +21,11 @@ namespace Apps.Actor.Earth
             // color
             var normal = a.normalized;
             var color = new Color(normal.x, normal.y, 1f);
+            SetColor(color);
+        }
+
+        public void SetColor(Color color)
+        {
             _Renderer.startColor = color;
             _Renderer.endColor = color;
         }

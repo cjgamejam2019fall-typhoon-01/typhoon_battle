@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine.UIElements;
 using System;
 
+#if UNITY_EDITOR
 namespace Skuld.Core.CustomProjectSettings.Editor
 {
     public class SettingsProvider<T, U> : SettingsProvider
@@ -80,3 +81,4 @@ namespace Skuld.Core.CustomProjectSettings.Editor
         }
     }
 }
+#endif

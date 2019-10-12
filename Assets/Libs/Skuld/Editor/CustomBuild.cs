@@ -2,6 +2,7 @@
 using UnityEditor;
 using System;
 
+#if UNITY_EDITOR
 namespace Skuld.Editor
 {
     public class CustomBuild : MonoBehaviour
@@ -39,3 +40,4 @@ namespace Skuld.Editor
         }
     }
 }
+#endif

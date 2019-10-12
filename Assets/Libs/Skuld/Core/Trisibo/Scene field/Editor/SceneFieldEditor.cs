@@ -21,6 +21,7 @@
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
 namespace Trisibo
 {
     [CustomPropertyDrawer(typeof(SceneField))]
@@ -141,3 +142,4 @@ namespace Trisibo
         }
     }
 }
+#endif

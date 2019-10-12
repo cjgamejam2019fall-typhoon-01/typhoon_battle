@@ -4,9 +4,14 @@ namespace Apps.Actor.Earth
 {
     public class Earth : MonoBehaviour
     {
-        private void OnTriggerEnter(Collider other)
+        private VectorField.VectorField _VectorField = null;
+
+        private void Awake()
         {
-            Debug.Log("[Earth] OnTriggerEnter");
+            _VectorField = GetComponentInChildren<VectorField.VectorField>();
+            ActorManager.Earth = this;
         }
+
+        public VectorField.VectorField VectorField => _VectorField;
     }
 }
