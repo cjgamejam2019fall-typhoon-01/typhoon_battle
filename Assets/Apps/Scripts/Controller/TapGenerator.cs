@@ -35,9 +35,9 @@ namespace Apps.Controller
             }
             var rotation = Quaternion.FromToRotation(direction, hit.normal);
             var instance = Instantiate<GameObject>(SourceObject, position, rotation);
+            var scale = instance.transform.localScale * Random.Range(ScaleRange.x, ScaleRange.y);
+            instance.transform.localScale = scale;
             instance.transform.parent = StackObject.transform;
-            var scale = Random.Range(ScaleRange.x, ScaleRange.y);
-            instance.transform.localScale = new Vector3(scale, scale, scale);
         }
     }
 }

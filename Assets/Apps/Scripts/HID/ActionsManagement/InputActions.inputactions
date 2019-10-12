@@ -68,6 +68,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "VectorFieldDrawerSwitch",
+                    "type": "Button",
+                    "id": "41112eeb-c900-4164-89d8-14f370a2e8ad",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -156,6 +164,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "GenerateTyphoon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b87b8c23-b020-473e-9428-d7da7573ee14",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "VectorFieldDrawerSwitch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

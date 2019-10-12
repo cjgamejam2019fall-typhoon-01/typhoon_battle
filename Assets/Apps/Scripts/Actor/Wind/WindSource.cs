@@ -31,7 +31,7 @@ namespace Apps.Actor.Wind
                 }
             }
 
-            // [TEST] ベクトルを操作
+            // ベクトルを操作
             foreach (var info in _NearVecorInfoList)
             {
                 var power = 1f - ((info.Root - transform.position).magnitude / EffectiveRange);

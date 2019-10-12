@@ -4,12 +4,13 @@ namespace Apps.Actor.VectorField
 {
     public class VectorDrawer : MonoBehaviour
     {
-        private LineRenderer _Renderer = null;
+        public LineRenderer _Renderer = null;
 
         private void Awake()
         {
             _Renderer = GetComponent<LineRenderer>();
             _Renderer.positionCount = 2;
+            _Renderer.enabled = false;
         }
 
         public void SetPosition(Vector3 a, Vector3 b)

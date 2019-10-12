@@ -31,6 +31,9 @@ namespace Apps.HID.ActionsManagement.Components
         protected virtual void OnMousePositionY(InputAction.CallbackContext context) { }
         void InputActions.IGameActions.OnMousePositionY(InputAction.CallbackContext context) => OnMousePositionY(context);
 
+        protected virtual void OnVectorFieldDrawerSwitch(InputAction.CallbackContext context) { }
+        void InputActions.IGameActions.OnVectorFieldDrawerSwitch(InputAction.CallbackContext context) => OnVectorFieldDrawerSwitch(context);
+
         void Start()
         {
             _GameMap = ActionsSystem.Instance.Maps.Game;

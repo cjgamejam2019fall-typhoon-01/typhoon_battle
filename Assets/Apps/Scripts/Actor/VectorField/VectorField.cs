@@ -27,10 +27,18 @@ namespace Apps.Actor.VectorField
             public List<ForceInfo> ForceInfoList = new List<ForceInfo>();
             public float lerpRatio = 0f;
 
+            public Vector3 MoveVec
+            {
+                get
+                {
+                    return _CurrentEdge - Root;
+                }
+            }
+
             public Vector3 CurrentEdge
             {
-                private get => _CurrentEdge;
-                set
+                get => _CurrentEdge;
+                private set
                 {
                     _CurrentEdge = value;
                     Drawer.SetPosition(_Root, _CurrentEdge);

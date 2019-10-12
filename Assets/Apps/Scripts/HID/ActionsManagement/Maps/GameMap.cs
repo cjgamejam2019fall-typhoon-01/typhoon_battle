@@ -17,6 +17,7 @@ namespace Apps.HID.ActionsManagement.Maps
             RegisterCallback(_mapping.GenerateTyphoon, instance.OnGenerateTyphoon);
             RegisterCallback(_mapping.MousePositionX, instance.OnMousePositionX);
             RegisterCallback(_mapping.MousePositionY, instance.OnMousePositionY);
+            RegisterCallback(_mapping.VectorFieldDrawerSwitch, instance.OnVectorFieldDrawerSwitch);
         }
 
         public override void DeregisterCallback(InputActions.IGameActions instance)
@@ -29,6 +30,7 @@ namespace Apps.HID.ActionsManagement.Maps
             DeregisterCallback(_mapping.GenerateTyphoon, instance.OnGenerateTyphoon);
             DeregisterCallback(_mapping.MousePositionX, instance.OnMousePositionX);
             DeregisterCallback(_mapping.MousePositionY, instance.OnMousePositionY);
+            DeregisterCallback(_mapping.VectorFieldDrawerSwitch, instance.OnVectorFieldDrawerSwitch);
         }
 
         protected override void Enable()

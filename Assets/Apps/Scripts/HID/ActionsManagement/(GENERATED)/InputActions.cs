@@ -82,6 +82,14 @@ namespace Apps.HID.ActionsManagement
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""VectorFieldDrawerSwitch"",
+                    ""type"": ""Button"",
+                    ""id"": ""41112eeb-c900-4164-89d8-14f370a2e8ad"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -172,6 +180,17 @@ namespace Apps.HID.ActionsManagement
                     ""action"": ""GenerateTyphoon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b87b8c23-b020-473e-9428-d7da7573ee14"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VectorFieldDrawerSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -188,6 +207,7 @@ namespace Apps.HID.ActionsManagement
             m_Game_MousePositionX = m_Game.FindAction("MousePositionX", throwIfNotFound: true);
             m_Game_MousePositionY = m_Game.FindAction("MousePositionY", throwIfNotFound: true);
             m_Game_GenerateTyphoon = m_Game.FindAction("GenerateTyphoon", throwIfNotFound: true);
+            m_Game_VectorFieldDrawerSwitch = m_Game.FindAction("VectorFieldDrawerSwitch", throwIfNotFound: true);
         }
 
         ~InputActions()
@@ -245,6 +265,7 @@ namespace Apps.HID.ActionsManagement
         private readonly InputAction m_Game_MousePositionX;
         private readonly InputAction m_Game_MousePositionY;
         private readonly InputAction m_Game_GenerateTyphoon;
+        private readonly InputAction m_Game_VectorFieldDrawerSwitch;
         public struct GameActions
         {
             private InputActions m_Wrapper;
@@ -257,6 +278,7 @@ namespace Apps.HID.ActionsManagement
             public InputAction @MousePositionX => m_Wrapper.m_Game_MousePositionX;
             public InputAction @MousePositionY => m_Wrapper.m_Game_MousePositionY;
             public InputAction @GenerateTyphoon => m_Wrapper.m_Game_GenerateTyphoon;
+            public InputAction @VectorFieldDrawerSwitch => m_Wrapper.m_Game_VectorFieldDrawerSwitch;
             public InputActionMap Get() { return m_Wrapper.m_Game; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -290,6 +312,9 @@ namespace Apps.HID.ActionsManagement
                     GenerateTyphoon.started -= m_Wrapper.m_GameActionsCallbackInterface.OnGenerateTyphoon;
                     GenerateTyphoon.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnGenerateTyphoon;
                     GenerateTyphoon.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnGenerateTyphoon;
+                    VectorFieldDrawerSwitch.started -= m_Wrapper.m_GameActionsCallbackInterface.OnVectorFieldDrawerSwitch;
+                    VectorFieldDrawerSwitch.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnVectorFieldDrawerSwitch;
+                    VectorFieldDrawerSwitch.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnVectorFieldDrawerSwitch;
                 }
                 m_Wrapper.m_GameActionsCallbackInterface = instance;
                 if (instance != null)
@@ -318,6 +343,9 @@ namespace Apps.HID.ActionsManagement
                     GenerateTyphoon.started += instance.OnGenerateTyphoon;
                     GenerateTyphoon.performed += instance.OnGenerateTyphoon;
                     GenerateTyphoon.canceled += instance.OnGenerateTyphoon;
+                    VectorFieldDrawerSwitch.started += instance.OnVectorFieldDrawerSwitch;
+                    VectorFieldDrawerSwitch.performed += instance.OnVectorFieldDrawerSwitch;
+                    VectorFieldDrawerSwitch.canceled += instance.OnVectorFieldDrawerSwitch;
                 }
             }
         }
@@ -332,6 +360,7 @@ namespace Apps.HID.ActionsManagement
             void OnMousePositionX(InputAction.CallbackContext context);
             void OnMousePositionY(InputAction.CallbackContext context);
             void OnGenerateTyphoon(InputAction.CallbackContext context);
+            void OnVectorFieldDrawerSwitch(InputAction.CallbackContext context);
         }
     }
 }
