@@ -13,7 +13,8 @@ namespace Apps.HID.ActionsManagement.Maps
             RegisterCallback(_mapping.RotationX, instance.OnRotationX);
             RegisterCallback(_mapping.RotationY, instance.OnRotationY);
             RegisterCallback(_mapping.Zoom, instance.OnZoom);
-            RegisterCallback(_mapping.Respawn, instance.OnRespawn);
+            RegisterCallback(_mapping.GenerateWind, instance.OnGenerateWind);
+            RegisterCallback(_mapping.GenerateTyphoon, instance.OnGenerateTyphoon);
             RegisterCallback(_mapping.MousePositionX, instance.OnMousePositionX);
             RegisterCallback(_mapping.MousePositionY, instance.OnMousePositionY);
         }
@@ -24,7 +25,8 @@ namespace Apps.HID.ActionsManagement.Maps
             DeregisterCallback(_mapping.RotationX, instance.OnRotationX);
             DeregisterCallback(_mapping.RotationY, instance.OnRotationY);
             DeregisterCallback(_mapping.Zoom, instance.OnZoom);
-            DeregisterCallback(_mapping.Respawn, instance.OnRespawn);
+            DeregisterCallback(_mapping.GenerateWind, instance.OnGenerateWind);
+            DeregisterCallback(_mapping.GenerateTyphoon, instance.OnGenerateTyphoon);
             DeregisterCallback(_mapping.MousePositionX, instance.OnMousePositionX);
             DeregisterCallback(_mapping.MousePositionY, instance.OnMousePositionY);
         }

@@ -52,7 +52,7 @@ namespace Apps.HID.ActionsManagement
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Respawn"",
+                    ""name"": ""GenerateWind"",
                     ""type"": ""Button"",
                     ""id"": ""508cd66d-48f3-44b8-accf-ba462a73b0c2"",
                     ""expectedControlType"": """",
@@ -71,6 +71,14 @@ namespace Apps.HID.ActionsManagement
                     ""name"": ""MousePositionY"",
                     ""type"": ""Value"",
                     ""id"": ""df6ddf33-f270-4e2a-9a8c-f3b66f3e16ea"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""GenerateTyphoon"",
+                    ""type"": ""Button"",
+                    ""id"": ""05bc9b73-c07d-4bda-a128-bdc925099bdd"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -128,7 +136,7 @@ namespace Apps.HID.ActionsManagement
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Respawn"",
+                    ""action"": ""GenerateWind"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -153,6 +161,17 @@ namespace Apps.HID.ActionsManagement
                     ""action"": ""MousePositionY"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cd1683c-4631-448c-80fa-ca8df50c6b89"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GenerateTyphoon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -165,9 +184,10 @@ namespace Apps.HID.ActionsManagement
             m_Game_RotationX = m_Game.FindAction("RotationX", throwIfNotFound: true);
             m_Game_RotationY = m_Game.FindAction("RotationY", throwIfNotFound: true);
             m_Game_Zoom = m_Game.FindAction("Zoom", throwIfNotFound: true);
-            m_Game_Respawn = m_Game.FindAction("Respawn", throwIfNotFound: true);
+            m_Game_GenerateWind = m_Game.FindAction("GenerateWind", throwIfNotFound: true);
             m_Game_MousePositionX = m_Game.FindAction("MousePositionX", throwIfNotFound: true);
             m_Game_MousePositionY = m_Game.FindAction("MousePositionY", throwIfNotFound: true);
+            m_Game_GenerateTyphoon = m_Game.FindAction("GenerateTyphoon", throwIfNotFound: true);
         }
 
         ~InputActions()
@@ -221,9 +241,10 @@ namespace Apps.HID.ActionsManagement
         private readonly InputAction m_Game_RotationX;
         private readonly InputAction m_Game_RotationY;
         private readonly InputAction m_Game_Zoom;
-        private readonly InputAction m_Game_Respawn;
+        private readonly InputAction m_Game_GenerateWind;
         private readonly InputAction m_Game_MousePositionX;
         private readonly InputAction m_Game_MousePositionY;
+        private readonly InputAction m_Game_GenerateTyphoon;
         public struct GameActions
         {
             private InputActions m_Wrapper;
@@ -232,9 +253,10 @@ namespace Apps.HID.ActionsManagement
             public InputAction @RotationX => m_Wrapper.m_Game_RotationX;
             public InputAction @RotationY => m_Wrapper.m_Game_RotationY;
             public InputAction @Zoom => m_Wrapper.m_Game_Zoom;
-            public InputAction @Respawn => m_Wrapper.m_Game_Respawn;
+            public InputAction @GenerateWind => m_Wrapper.m_Game_GenerateWind;
             public InputAction @MousePositionX => m_Wrapper.m_Game_MousePositionX;
             public InputAction @MousePositionY => m_Wrapper.m_Game_MousePositionY;
+            public InputAction @GenerateTyphoon => m_Wrapper.m_Game_GenerateTyphoon;
             public InputActionMap Get() { return m_Wrapper.m_Game; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -256,15 +278,18 @@ namespace Apps.HID.ActionsManagement
                     Zoom.started -= m_Wrapper.m_GameActionsCallbackInterface.OnZoom;
                     Zoom.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnZoom;
                     Zoom.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnZoom;
-                    Respawn.started -= m_Wrapper.m_GameActionsCallbackInterface.OnRespawn;
-                    Respawn.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnRespawn;
-                    Respawn.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnRespawn;
+                    GenerateWind.started -= m_Wrapper.m_GameActionsCallbackInterface.OnGenerateWind;
+                    GenerateWind.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnGenerateWind;
+                    GenerateWind.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnGenerateWind;
                     MousePositionX.started -= m_Wrapper.m_GameActionsCallbackInterface.OnMousePositionX;
                     MousePositionX.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnMousePositionX;
                     MousePositionX.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnMousePositionX;
                     MousePositionY.started -= m_Wrapper.m_GameActionsCallbackInterface.OnMousePositionY;
                     MousePositionY.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnMousePositionY;
                     MousePositionY.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnMousePositionY;
+                    GenerateTyphoon.started -= m_Wrapper.m_GameActionsCallbackInterface.OnGenerateTyphoon;
+                    GenerateTyphoon.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnGenerateTyphoon;
+                    GenerateTyphoon.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnGenerateTyphoon;
                 }
                 m_Wrapper.m_GameActionsCallbackInterface = instance;
                 if (instance != null)
@@ -281,15 +306,18 @@ namespace Apps.HID.ActionsManagement
                     Zoom.started += instance.OnZoom;
                     Zoom.performed += instance.OnZoom;
                     Zoom.canceled += instance.OnZoom;
-                    Respawn.started += instance.OnRespawn;
-                    Respawn.performed += instance.OnRespawn;
-                    Respawn.canceled += instance.OnRespawn;
+                    GenerateWind.started += instance.OnGenerateWind;
+                    GenerateWind.performed += instance.OnGenerateWind;
+                    GenerateWind.canceled += instance.OnGenerateWind;
                     MousePositionX.started += instance.OnMousePositionX;
                     MousePositionX.performed += instance.OnMousePositionX;
                     MousePositionX.canceled += instance.OnMousePositionX;
                     MousePositionY.started += instance.OnMousePositionY;
                     MousePositionY.performed += instance.OnMousePositionY;
                     MousePositionY.canceled += instance.OnMousePositionY;
+                    GenerateTyphoon.started += instance.OnGenerateTyphoon;
+                    GenerateTyphoon.performed += instance.OnGenerateTyphoon;
+                    GenerateTyphoon.canceled += instance.OnGenerateTyphoon;
                 }
             }
         }
@@ -300,9 +328,10 @@ namespace Apps.HID.ActionsManagement
             void OnRotationX(InputAction.CallbackContext context);
             void OnRotationY(InputAction.CallbackContext context);
             void OnZoom(InputAction.CallbackContext context);
-            void OnRespawn(InputAction.CallbackContext context);
+            void OnGenerateWind(InputAction.CallbackContext context);
             void OnMousePositionX(InputAction.CallbackContext context);
             void OnMousePositionY(InputAction.CallbackContext context);
+            void OnGenerateTyphoon(InputAction.CallbackContext context);
         }
     }
 }

@@ -47,7 +47,7 @@ MonoBehaviour:
   EffectiveRange: 200
   Force: 50
   Life: 50
-  LifeDescreaseSpeed: 20
+  LifeDescreaseSpeed: 5
 --- !u!1001 &4331164235532938560
 PrefabInstance:
   m_ObjectHideFlags: 0

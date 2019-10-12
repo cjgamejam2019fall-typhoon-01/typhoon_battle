@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Respawn",
+                    "name": "GenerateWind",
                     "type": "Button",
                     "id": "508cd66d-48f3-44b8-accf-ba462a73b0c2",
                     "expectedControlType": "",
@@ -57,6 +57,14 @@
                     "name": "MousePositionY",
                     "type": "Value",
                     "id": "df6ddf33-f270-4e2a-9a8c-f3b66f3e16ea",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "GenerateTyphoon",
+                    "type": "Button",
+                    "id": "05bc9b73-c07d-4bda-a128-bdc925099bdd",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -114,7 +122,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Respawn",
+                    "action": "GenerateWind",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -137,6 +145,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MousePositionY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8cd1683c-4631-448c-80fa-ca8df50c6b89",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GenerateTyphoon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

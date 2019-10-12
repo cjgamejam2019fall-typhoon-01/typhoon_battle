@@ -19,7 +19,7 @@ namespace Apps.Actor.VectorField
             _Renderer.SetPosition(1, b);
 
             // color
-            var normal = a.normalized;
+            var normal = (b-a).normalized;
             var color = new Color(normal.x, normal.y, 1f);
             SetColor(color);
         }

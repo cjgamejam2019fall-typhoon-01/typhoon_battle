@@ -63,6 +63,7 @@ namespace Apps.Actor.Wind
                     foreach (var info in _NearVecorInfoList)
                     {
                         info.RemoveForce(this);
+                        Destroy(this.gameObject);
                     }
                 }
             }

@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dff36c5f496494697259df07cb13a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GenerateType: 1
   SourceObject: {fileID: 4331164236310013595, guid: 578caf685c5fe964da346eeb18182897,
     type: 3}
   StackObject: {fileID: 824139617}
@@ -298,7 +299,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630495912
 GameObject:
@@ -316,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &630495913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dff36c5f496494697259df07cb13a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GenerateType: 2
   SourceObject: {fileID: 7479634459195711194, guid: 609aae3b894ac8b4dbda732224af9791,
     type: 3}
   StackObject: {fileID: 353594221}
@@ -347,7 +349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &824139617 stripped
 GameObject:

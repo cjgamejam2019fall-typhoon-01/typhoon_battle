@@ -7,6 +7,14 @@ namespace Apps.Controller
     {
         private Vector2 mousePosition = Vector2.zero;
 
+        public enum GenerateType
+        {
+            None,
+            Wind,
+            Typhoon
+        }
+        public GenerateType _GenerateType = GenerateType.None;
+
         protected override void OnMousePositionX(InputAction.CallbackContext context)
         {
             mousePosition.x = context.ReadValue<float>();
@@ -17,7 +25,23 @@ namespace Apps.Controller
             mousePosition.y = context.ReadValue<float>();
         }
 
-        protected override void OnRespawn(InputAction.CallbackContext context)
+        protected override void OnGenerateWind(InputAction.CallbackContext context)
+        {
+            if (_GenerateType == GenerateType.Wind)
+            {
+                OnGenerate(context);
+            }
+        }
+
+        protected override void OnGenerateTyphoon(InputAction.CallbackContext context)
+        {
+            if (_GenerateType == GenerateType.Typhoon)
+            {
+                OnGenerate(context);
+            }
+        }
+
+        private void OnGenerate(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Started)
             {

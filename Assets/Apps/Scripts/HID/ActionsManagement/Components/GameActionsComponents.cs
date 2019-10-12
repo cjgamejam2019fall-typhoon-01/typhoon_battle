@@ -19,8 +19,11 @@ namespace Apps.HID.ActionsManagement.Components
         protected virtual void OnZoom(InputAction.CallbackContext context) { }
         void InputActions.IGameActions.OnZoom(InputAction.CallbackContext context) => OnZoom(context);
 
-        protected virtual void OnRespawn(InputAction.CallbackContext context) { }
-        void InputActions.IGameActions.OnRespawn(InputAction.CallbackContext context) => OnRespawn(context);
+        protected virtual void OnGenerateWind(InputAction.CallbackContext context) { }
+        void InputActions.IGameActions.OnGenerateWind(InputAction.CallbackContext context) => OnGenerateWind(context);
+
+        protected virtual void OnGenerateTyphoon(InputAction.CallbackContext context) { }
+        void InputActions.IGameActions.OnGenerateTyphoon(InputAction.CallbackContext context) => OnGenerateTyphoon(context);
 
         protected virtual void OnMousePositionX(InputAction.CallbackContext context) { }
         void InputActions.IGameActions.OnMousePositionX(InputAction.CallbackContext context) => OnMousePositionX(context);
