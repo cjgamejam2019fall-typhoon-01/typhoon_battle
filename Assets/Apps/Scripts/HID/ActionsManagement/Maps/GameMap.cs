@@ -12,6 +12,7 @@ namespace Apps.HID.ActionsManagement.Maps
             RegisterCallback(_mapping.RotationTrigger, instance.OnRotationTrigger);
             RegisterCallback(_mapping.RotationX, instance.OnRotationX);
             RegisterCallback(_mapping.RotationY, instance.OnRotationY);
+            RegisterCallback(_mapping.Zoom, instance.OnZoom);
         }
 
         public override void DeregisterCallback(InputActions.IGameActions instance)
@@ -19,6 +20,7 @@ namespace Apps.HID.ActionsManagement.Maps
             DeregisterCallback(_mapping.RotationTrigger, instance.OnRotationTrigger);
             DeregisterCallback(_mapping.RotationX, instance.OnRotationX);
             DeregisterCallback(_mapping.RotationY, instance.OnRotationY);
+            DeregisterCallback(_mapping.Zoom, instance.OnZoom);
         }
 
         protected override void Enable()

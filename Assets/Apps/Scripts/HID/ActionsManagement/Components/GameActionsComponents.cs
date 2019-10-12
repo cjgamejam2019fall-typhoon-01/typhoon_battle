@@ -16,6 +16,9 @@ namespace Apps.HID.ActionsManagement.Components
         protected abstract void OnRotationY(InputAction.CallbackContext context);
         void InputActions.IGameActions.OnRotationY(InputAction.CallbackContext context) => OnRotationY(context);
 
+        protected abstract void OnZoom(InputAction.CallbackContext context);
+        void InputActions.IGameActions.OnZoom(InputAction.CallbackContext context) => OnZoom(context);
+
         void Start()
         {
             _GameMap = ActionsSystem.Instance.Maps.Game;

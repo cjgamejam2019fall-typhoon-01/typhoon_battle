@@ -42,6 +42,14 @@ namespace Apps.HID.ActionsManagement
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Button"",
+                    ""id"": ""87ad12a5-ba84-4daa-bcaf-53ff2a6e2b0c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -77,6 +85,17 @@ namespace Apps.HID.ActionsManagement
                     ""action"": ""RotationY"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44bc19bc-dcfa-4a1b-bf7a-72f9dfec8312"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -88,6 +107,7 @@ namespace Apps.HID.ActionsManagement
             m_Game_RotationTrigger = m_Game.FindAction("RotationTrigger", throwIfNotFound: true);
             m_Game_RotationX = m_Game.FindAction("RotationX", throwIfNotFound: true);
             m_Game_RotationY = m_Game.FindAction("RotationY", throwIfNotFound: true);
+            m_Game_Zoom = m_Game.FindAction("Zoom", throwIfNotFound: true);
         }
 
         ~InputActions()
@@ -140,6 +160,7 @@ namespace Apps.HID.ActionsManagement
         private readonly InputAction m_Game_RotationTrigger;
         private readonly InputAction m_Game_RotationX;
         private readonly InputAction m_Game_RotationY;
+        private readonly InputAction m_Game_Zoom;
         public struct GameActions
         {
             private InputActions m_Wrapper;
@@ -147,6 +168,7 @@ namespace Apps.HID.ActionsManagement
             public InputAction @RotationTrigger => m_Wrapper.m_Game_RotationTrigger;
             public InputAction @RotationX => m_Wrapper.m_Game_RotationX;
             public InputAction @RotationY => m_Wrapper.m_Game_RotationY;
+            public InputAction @Zoom => m_Wrapper.m_Game_Zoom;
             public InputActionMap Get() { return m_Wrapper.m_Game; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -165,6 +187,9 @@ namespace Apps.HID.ActionsManagement
                     RotationY.started -= m_Wrapper.m_GameActionsCallbackInterface.OnRotationY;
                     RotationY.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnRotationY;
                     RotationY.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnRotationY;
+                    Zoom.started -= m_Wrapper.m_GameActionsCallbackInterface.OnZoom;
+                    Zoom.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnZoom;
+                    Zoom.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnZoom;
                 }
                 m_Wrapper.m_GameActionsCallbackInterface = instance;
                 if (instance != null)
@@ -178,6 +203,9 @@ namespace Apps.HID.ActionsManagement
                     RotationY.started += instance.OnRotationY;
                     RotationY.performed += instance.OnRotationY;
                     RotationY.canceled += instance.OnRotationY;
+                    Zoom.started += instance.OnZoom;
+                    Zoom.performed += instance.OnZoom;
+                    Zoom.canceled += instance.OnZoom;
                 }
             }
         }
@@ -187,6 +215,7 @@ namespace Apps.HID.ActionsManagement
             void OnRotationTrigger(InputAction.CallbackContext context);
             void OnRotationX(InputAction.CallbackContext context);
             void OnRotationY(InputAction.CallbackContext context);
+            void OnZoom(InputAction.CallbackContext context);
         }
     }
 }

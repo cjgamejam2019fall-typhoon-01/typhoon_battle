@@ -9,16 +9,22 @@ namespace Apps.Camera
     {
         [ReadOnly] public InputActionPhase CurrentPhase = InputActionPhase.Disabled;
         [ReadOnly] public bool _IsRotation = false;
-
-        [ReadOnly] public float azimuthalAngle = 45f;
-        [ReadOnly] public float polarAngle = 45f;
-
         [ReadOnly] public Vector2 mouseDelta = Vector2.zero;
+        [ReadOnly] public Vector2 mouseDeltaRemnant = Vector2.zero;
+
+        private UnityEngine.Camera _Camera = null;
+        [ReadOnly] public float zoom = 0f;
 
         [SerializeField] private GameObject lookAtTarget = null;
-        [SerializeField] private float distance = 10f;
+        [SerializeField] private float minFOV = 5f;
+        [SerializeField] private float maxFOV = 90f;
         [SerializeField] private float inputSensitivity = 1f;
         [SerializeField] private float rotationDeceleration = 1f;
+
+        private void Awake()
+        {
+            _Camera = GetComponent<UnityEngine.Camera>();
+        }
 
         protected override void OnRotationTrigger(InputAction.CallbackContext context)
         {
@@ -46,6 +52,13 @@ namespace Apps.Camera
             mouseDelta.y = -(float)context.ReadValue<float>();
         }
 
+        protected override void OnZoom(InputAction.CallbackContext context)
+        {
+            zoom = context.ReadValue<float>();
+            var fov = _Camera.fieldOfView - zoom * Time.deltaTime;
+            _Camera.fieldOfView = Mathf.Clamp(fov, minFOV, maxFOV);
+        }
+
         private void rotateAround(Vector2 delta)
         {
             var axis = transform.up * delta.x + transform.right * delta.y;
@@ -53,7 +66,6 @@ namespace Apps.Camera
             transform.RotateAround(lookAtTarget.transform.position, axis, angle);
         }
 
-        private Vector2 mouseDeltaRemnant = Vector2.zero;
         private void LateUpdate()
         {
             if (_IsRotation)
