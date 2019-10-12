@@ -7,6 +7,11 @@ namespace Skuld.Core.SceneManagement
     {
         public static void Load(ResidentSceneList list)
         {
+            if (list == null)
+            {
+                return;
+            }
+
             foreach (var info in list.SceneInfoList)
             {
                 var index = info.Scene.BuildIndex;

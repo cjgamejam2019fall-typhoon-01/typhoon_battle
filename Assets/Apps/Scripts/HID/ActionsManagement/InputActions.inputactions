@@ -1,0 +1,71 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "429b4856-8d96-4c55-9e89-4d6f0a2e8736",
+            "actions": [
+                {
+                    "name": "RotationTrigger",
+                    "type": "Button",
+                    "id": "ab1a6028-fef1-432e-abe2-d89ce08973dd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RotationX",
+                    "type": "Value",
+                    "id": "7db8e3d7-bed5-4985-9c36-5e67fc386994",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RotationY",
+                    "type": "Button",
+                    "id": "353d8949-eb66-4f20-b765-fa0fe7572cd2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2c9d39da-ba0f-40d7-874b-51082e5db4a9",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotationTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c735293-464e-4345-a65c-d53faadd10a0",
+                    "path": "<Mouse>/delta/x",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotationX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "736df051-12bc-4ca7-a1b1-b80f01ee2e63",
+                    "path": "<Mouse>/delta/y",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotationY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
