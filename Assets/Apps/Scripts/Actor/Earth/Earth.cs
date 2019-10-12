@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Apps.Earth
+namespace Apps.Actor.Earth
 {
     public class Earth : MonoBehaviour
     {

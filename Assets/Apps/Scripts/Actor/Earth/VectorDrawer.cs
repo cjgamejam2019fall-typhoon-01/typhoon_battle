@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Apps.Earth
+namespace Apps.Actor.Earth
 {
     public class VectorDrawer : MonoBehaviour
     {
@@ -23,7 +23,6 @@ namespace Apps.Earth
             var color = new Color(normal.x, normal.y, 1f);
             _Renderer.startColor = color;
             _Renderer.endColor = color;
-            _Renderer.material = new Material(Shader.Find("Mobile/Particles/Additive"));
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Apps.Earth
+namespace Apps.Actor.Earth
 {
     public class VectorField : MonoBehaviour
     {

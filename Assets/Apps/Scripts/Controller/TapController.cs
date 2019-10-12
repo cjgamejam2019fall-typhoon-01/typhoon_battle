@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Apps.Typhoon
+namespace Apps.Controller
 {
-    public class TyphoonGenerator : HID.ActionsManagement.Components.GameActionsComponent
+    public abstract class TapController : HID.ActionsManagement.Components.GameActionsComponent
     {
-        public GameObject TyphoonObject = null;
-        public GameObject ParentTyphoonList = null;
-
         private Vector2 mousePosition = Vector2.zero;
 
         protected override void OnMousePositionX(InputAction.CallbackContext context)
@@ -28,14 +25,11 @@ namespace Apps.Typhoon
                 var hit = new RaycastHit();
                 if (Physics.Raycast(ray, out hit))
                 {
-                    var position = hit.point.normalized * (hit.point.magnitude + 2f);
-                    var rotation = Quaternion.FromToRotation(Vector3.forward, hit.normal);
-                    var instance = Instantiate<GameObject>(TyphoonObject, position, rotation);
-                    instance.transform.parent = ParentTyphoonList.transform;
-                    var scale = Random.Range(2f, 3f);
-                    instance.transform.localScale = new Vector3(scale, scale, 1f);
+                    OnTap(hit);
                 }
             }
         }
+
+        protected abstract void OnTap(RaycastHit hit);
     }
 }
