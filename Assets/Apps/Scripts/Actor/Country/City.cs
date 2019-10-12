@@ -21,25 +21,47 @@ namespace Apps.Actor.City
         public CityCode Code = CityCode.Unknown;
         public string Name = "";
 
+        private bool IsTarget = false;
         private MeshRenderer _MeshRenderer = null;
+
+        public float Health = 100f;
 
         private void Awake()
         {
             _MeshRenderer = GetComponent<MeshRenderer>();
+            SetTarget(false);
         }
 
-        public void SetMeshRendererEnable(bool flag)
+        private void SetMeshRendererEnable(bool flag)
         {
             _MeshRenderer.enabled = flag;
         }
 
+        public void SetTarget(bool flag)
+        {
+            IsTarget = flag;
+            SetMeshRendererEnable(flag);
+        }
+
+        public void EatDamage(float damage)
+        {
+            if (Health > 0)
+            {
+                Health = Mathf.Max(Health - damage, 0);
+            }
+        }
+
         void Start()
         {
-            SetMeshRendererEnable(false);
         }
 
         void Update()
         {
+            if (Health <= 0)
+            {
+                GameSystem.GameManager.Level.BreakTarget(this);
+                SetTarget(false);
+            }
         }
     }
 }

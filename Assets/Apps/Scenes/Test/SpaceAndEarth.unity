@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac673dde13f34014c82b80970605ce04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cities: []
 --- !u!1 &82477099
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,8 +341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d0e921d9af9a8498f05570b7d66ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Code: 1
+  Code: 4
   Name: "\u6771\u4EAC"
+  Health: 100
 --- !u!135 &200698763
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -457,6 +459,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &469699292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 469699293}
+  - component: {fileID: 469699294}
+  m_Layer: 0
+  m_Name: GameSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &469699293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469699292}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25.545105, y: 18.967789, z: 25.704987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &469699294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469699292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59899d9def230864c9340ab7e4d9a501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetCities: []
 --- !u!1 &630495912
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +537,7 @@ MonoBehaviour:
     type: 3}
   StackObject: {fileID: 353594221}
   FloatingOffset: 2
-  ScaleRange: {x: 1, y: 2}
+  ScaleRange: {x: 1.5, y: 2}
   Direction: 2
 --- !u!4 &630495914
 Transform:
@@ -555,6 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Code: 2
   Name: "\u30CB\u30E5\u30FC\u30E8\u30FC\u30AF"
+  Health: 100
 --- !u!135 &681350822
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -870,6 +917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Code: 6
   Name: "\u30B7\u30F3\u30AC\u30DD\u30FC\u30EB"
+  Health: 100
 --- !u!135 &1438096689
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -977,6 +1025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Code: 1
   Name: "\u30ED\u30F3\u30C9\u30F3"
+  Health: 100
 --- !u!135 &1517672231
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1084,6 +1133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Code: 5
   Name: "\u9999\u6E2F"
+  Health: 100
 --- !u!135 &1534998505
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1294,6 +1344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Code: 3
   Name: "\u30D1\u30EA"
+  Health: 100
 --- !u!135 &2080618321
 SphereCollider:
   m_ObjectHideFlags: 0

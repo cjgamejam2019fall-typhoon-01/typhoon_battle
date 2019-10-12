@@ -11,12 +11,13 @@ namespace Apps.Actor.City
         private void Awake()
         {
             ActorManager.CityList = this;
+
+            var cities = GetComponentsInChildren<City>();
+            Cities.AddRange(cities);
         }
 
         void Start()
         {
-            var cities = GetComponentsInChildren<City>();
-            Cities.AddRange(cities);
         }
 
         void Update()
