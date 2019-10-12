@@ -7,6 +7,8 @@ namespace Apps.GameSystem
     public class Level : MonoBehaviour
     {
         public List<Actor.City.City> TargetCities = new List<Actor.City.City>();
+        [Range(1, 7)]
+        public uint MaxWindSlotNum = 7;
 
         private void Awake()
         {

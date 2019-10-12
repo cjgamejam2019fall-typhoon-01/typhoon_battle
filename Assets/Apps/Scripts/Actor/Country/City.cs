@@ -21,13 +21,15 @@ namespace Apps.Actor.City
         public CityCode Code = CityCode.Unknown;
         public string Name = "";
 
-        private bool IsTarget = false;
+        public bool IsTarget = false;
         private MeshRenderer _MeshRenderer = null;
 
         public float Health = 100f;
+        public float MaxHealth = 100f;
 
         private void Awake()
         {
+            MaxHealth = Health;
             _MeshRenderer = GetComponent<MeshRenderer>();
             SetTarget(false);
         }
@@ -50,6 +52,7 @@ namespace Apps.Actor.City
                 Health = Mathf.Max(Health - damage, 0);
             }
         }
+
 
         void Start()
         {

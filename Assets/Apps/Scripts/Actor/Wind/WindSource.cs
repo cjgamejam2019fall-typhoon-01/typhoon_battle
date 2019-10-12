@@ -11,7 +11,8 @@ namespace Apps.Actor.Wind
 
         public float Life = 50f;
         public float LifeDescreaseSpeed = 1f;
-        private float CurrentLife = 0f;
+        [System.NonSerialized]
+        public float CurrentLife = 0f;
 
         private MeshRenderer meshRenderer = null;
 

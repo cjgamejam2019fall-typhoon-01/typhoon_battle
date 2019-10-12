@@ -15,8 +15,22 @@ namespace Apps.Controller
         }
         public RotationDirection Direction = RotationDirection.Forward;
 
+        protected virtual bool CanGenerate(RaycastHit hit)
+        {
+            return true;
+        }
+
+        protected virtual void OnGenerated(GameObject result)
+        {
+        }
+
         protected override void OnTap(RaycastHit hit)
         {
+            if (!CanGenerate(hit))
+            {
+                return;
+            }
+
             var position = hit.point.normalized * (hit.point.magnitude + FloatingOffset);
             var direction = Vector3.zero;
             switch (Direction) {
@@ -38,6 +52,8 @@ namespace Apps.Controller
             var scale = instance.transform.localScale * Random.Range(ScaleRange.x, ScaleRange.y);
             instance.transform.localScale = scale;
             instance.transform.parent = StackObject.transform;
+
+            OnGenerated(instance);
         }
     }
 }
