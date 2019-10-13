@@ -17,6 +17,7 @@ namespace Apps.GameSystem
 
         void Start()
         {
+#if false
             var cities = Actor.ActorManager.CityList.Cities;
             foreach (var city in cities)
             {
@@ -27,6 +28,7 @@ namespace Apps.GameSystem
                     break;
                 }
             }
+#endif
         }
 
         public void SetTarget(Actor.City.City target)
