@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Apps/Scenes/Resident/GameSystem.unity
     guid: f94a6d89af75d954ba50a683e2dab1f7
+  - enabled: 1
+    path: Assets/Apps/Scenes/Test/Black.unity
+    guid: 8ee68e0f8c9cc684aaa5644aeb1289e8
   m_configObjects: {}

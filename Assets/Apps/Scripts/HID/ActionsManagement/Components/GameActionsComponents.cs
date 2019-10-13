@@ -34,6 +34,12 @@ namespace Apps.HID.ActionsManagement.Components
         protected virtual void OnVectorFieldDrawerSwitch(InputAction.CallbackContext context) { }
         void InputActions.IGameActions.OnVectorFieldDrawerSwitch(InputAction.CallbackContext context) => OnVectorFieldDrawerSwitch(context);
 
+        protected virtual void OnReset(InputAction.CallbackContext context) { }
+        void InputActions.IGameActions.OnReset(InputAction.CallbackContext context) => OnReset(context);
+
+        protected virtual void OnUTMode(InputAction.CallbackContext context) { }
+        void InputActions.IGameActions.OnUTMode(InputAction.CallbackContext context) => OnUTMode(context);
+
         void Start()
         {
             _GameMap = ActionsSystem.Instance.Maps.Game;
@@ -42,7 +48,11 @@ namespace Apps.HID.ActionsManagement.Components
 
         void OnDestroy()
         {
-            _GameMap.DeregisterCallback(this);
+            if (_GameMap != null)
+            {
+
+                _GameMap.DeregisterCallback(this);
+            }
         }
     }
 }

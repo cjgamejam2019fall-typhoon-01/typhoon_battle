@@ -90,6 +90,22 @@ namespace Apps.HID.ActionsManagement
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""9431a30c-2de2-4fdf-866f-ad429e77a647"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""UTMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""cbc21d67-93e1-4e0b-9e6f-5ff9f8b4ce87"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -191,6 +207,28 @@ namespace Apps.HID.ActionsManagement
                     ""action"": ""VectorFieldDrawerSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd6c5bcb-6578-49db-b46f-9219524a83c9"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4791725c-1340-499d-aad6-f1202331f3b6"",
+                    ""path"": ""<Keyboard>/f8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UTMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -208,6 +246,8 @@ namespace Apps.HID.ActionsManagement
             m_Game_MousePositionY = m_Game.FindAction("MousePositionY", throwIfNotFound: true);
             m_Game_GenerateTyphoon = m_Game.FindAction("GenerateTyphoon", throwIfNotFound: true);
             m_Game_VectorFieldDrawerSwitch = m_Game.FindAction("VectorFieldDrawerSwitch", throwIfNotFound: true);
+            m_Game_Reset = m_Game.FindAction("Reset", throwIfNotFound: true);
+            m_Game_UTMode = m_Game.FindAction("UTMode", throwIfNotFound: true);
         }
 
         ~InputActions()
@@ -266,6 +306,8 @@ namespace Apps.HID.ActionsManagement
         private readonly InputAction m_Game_MousePositionY;
         private readonly InputAction m_Game_GenerateTyphoon;
         private readonly InputAction m_Game_VectorFieldDrawerSwitch;
+        private readonly InputAction m_Game_Reset;
+        private readonly InputAction m_Game_UTMode;
         public struct GameActions
         {
             private InputActions m_Wrapper;
@@ -279,6 +321,8 @@ namespace Apps.HID.ActionsManagement
             public InputAction @MousePositionY => m_Wrapper.m_Game_MousePositionY;
             public InputAction @GenerateTyphoon => m_Wrapper.m_Game_GenerateTyphoon;
             public InputAction @VectorFieldDrawerSwitch => m_Wrapper.m_Game_VectorFieldDrawerSwitch;
+            public InputAction @Reset => m_Wrapper.m_Game_Reset;
+            public InputAction @UTMode => m_Wrapper.m_Game_UTMode;
             public InputActionMap Get() { return m_Wrapper.m_Game; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -315,6 +359,12 @@ namespace Apps.HID.ActionsManagement
                     VectorFieldDrawerSwitch.started -= m_Wrapper.m_GameActionsCallbackInterface.OnVectorFieldDrawerSwitch;
                     VectorFieldDrawerSwitch.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnVectorFieldDrawerSwitch;
                     VectorFieldDrawerSwitch.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnVectorFieldDrawerSwitch;
+                    Reset.started -= m_Wrapper.m_GameActionsCallbackInterface.OnReset;
+                    Reset.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnReset;
+                    Reset.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnReset;
+                    UTMode.started -= m_Wrapper.m_GameActionsCallbackInterface.OnUTMode;
+                    UTMode.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnUTMode;
+                    UTMode.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnUTMode;
                 }
                 m_Wrapper.m_GameActionsCallbackInterface = instance;
                 if (instance != null)
@@ -346,6 +396,12 @@ namespace Apps.HID.ActionsManagement
                     VectorFieldDrawerSwitch.started += instance.OnVectorFieldDrawerSwitch;
                     VectorFieldDrawerSwitch.performed += instance.OnVectorFieldDrawerSwitch;
                     VectorFieldDrawerSwitch.canceled += instance.OnVectorFieldDrawerSwitch;
+                    Reset.started += instance.OnReset;
+                    Reset.performed += instance.OnReset;
+                    Reset.canceled += instance.OnReset;
+                    UTMode.started += instance.OnUTMode;
+                    UTMode.performed += instance.OnUTMode;
+                    UTMode.canceled += instance.OnUTMode;
                 }
             }
         }
@@ -361,6 +417,8 @@ namespace Apps.HID.ActionsManagement
             void OnMousePositionY(InputAction.CallbackContext context);
             void OnGenerateTyphoon(InputAction.CallbackContext context);
             void OnVectorFieldDrawerSwitch(InputAction.CallbackContext context);
+            void OnReset(InputAction.CallbackContext context);
+            void OnUTMode(InputAction.CallbackContext context);
         }
     }
 }

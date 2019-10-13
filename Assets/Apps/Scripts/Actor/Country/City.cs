@@ -8,12 +8,117 @@ namespace Apps.Actor.City
     {
         Unknown,
 
+        // 世界都市
         London,
         Newyork,
         Paris,
         Tokyo,
         HongKong,
         Singapore,
+
+        // 東アジア
+        Osaka,
+        Nagoya,
+        Beijing,
+        Shanghai,
+        Canton,
+        Shenzhen,
+        Chongqing,
+        Taipei,
+        Koahsiugn,
+        Seoul,
+
+        // 東南アジア
+        Bangkok,
+        KualaLumpur,
+        Jakarta,
+        Manila,
+        HoChiMinh,
+
+        // 南アジア
+        Mumbai,
+        Delhi,
+        Calcutta,
+        Chennai,
+        Bangalore,
+        Karachi,
+        Lahore,
+
+        // ヨーロッパ
+        Berlin,
+        Frankfurt,
+        Munchen,
+        Rome,
+        Milan,
+        Madrid,
+        Barcelona,
+        Zurich,
+        Geneva,
+        Amsterdam,
+        Brussels,
+        Dublin,
+        Vienna,
+        Stockholm,
+        Copenhagen,
+        Oslo,
+        Lisbon,
+        Praha,
+        Moscow,
+        Istanbul,
+
+        // 北アメリカ
+        LosAngeles,
+        Chicago,
+        Boston,
+        Houston,
+        Dallas,
+        Miami,
+        Atlanta,
+        Seattle,
+        Denver,
+        Toronto,
+        Montreal,
+        Vancouver,
+        Calgary,
+        MexicoCity,
+
+        // 南アメリカ
+        SaoPaulo,
+        RioDeJaneiro,
+        BuenosAires,
+        Bogota,
+        Caracas,
+        Lima,
+        Santiago,
+        Quito,
+        Guayaquil,
+
+        // 中東
+        Dubai,
+        AbuDhabi,
+        TelAviv,
+        Riyadh,
+        Jiddah,
+        Doha,
+
+        // アフリカ
+        Cairo,
+        Johannesburg,
+        CapeTown,
+        Nairobi,
+        Lagos,
+        Casablanca,
+        Tunis,
+        AddisAbaba,
+        Kinshasa,
+
+        // オセアニア
+        Sydney,
+        Melbourne,
+        Brisbane,
+        Pers,
+        Auckland,
+        Wellington,
     }
 
     public class City : MonoBehaviour
