@@ -9,6 +9,10 @@ namespace Apps.UI
     {
         public Text Text = null;
 
+        public GameObject EnableOn2 = null;
+        public GameObject EnableOn1 = null;
+        public GameObject EnableOn0 = null;
+
         private bool IsWaiting = true;
         public float WaitTime = 1.5f;
         private float WaitTimer = 1.5f;
@@ -24,6 +28,10 @@ namespace Apps.UI
             WaitTimer = WaitTime;
             TransparentTimer = TransparentTime;
             Text.text = "";
+
+            EnableOn2.SetActive(false);
+            EnableOn1.SetActive(false);
+            EnableOn0.SetActive(false);
         }
 
         void Update()
@@ -45,18 +53,25 @@ namespace Apps.UI
                     IsTransparentUpdate = false;
                     TransparentTimer = TransparentTime;
                     --CurrentTime;
-                    if (CurrentTime == 0)
+                    if (CurrentTime == 2)
                     {
+                        EnableOn2.SetActive(true);
+                        Text.text = CurrentTime.ToString();
+                    }
+                    else if (CurrentTime == 1)
+                    {
+                        EnableOn1.SetActive(true);
+                        Text.text = CurrentTime.ToString();
+                    }
+                    else if (CurrentTime == 0)
+                    {
+                        EnableOn0.SetActive(true);
                         Text.text = "Start";
                     }
                     else if (CurrentTime == -1)
                     {
                         Text.text = "";
                         enabled = false;
-                    }
-                    else
-                    {
-                        Text.text = CurrentTime.ToString();
                     }
 
                     var color = Text.color;

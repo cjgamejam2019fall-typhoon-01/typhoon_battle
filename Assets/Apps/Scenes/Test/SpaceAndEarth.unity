@@ -1186,7 +1186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &630495913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1933,6 +1933,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 1728012820}
+  EnableOn2: {fileID: 1920044497}
+  EnableOn1: {fileID: 1959851410}
+  EnableOn0: {fileID: 358118008}
   WaitTime: 1.5
   TransparentTime: 1
 --- !u!1 &1438096686
