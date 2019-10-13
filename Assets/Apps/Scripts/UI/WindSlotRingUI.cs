@@ -11,6 +11,9 @@ namespace Apps.UI
         private bool IsAnimating = false;
         private RectTransform rectTransform = null;
 
+        public AudioClip WaitUpAudio = null;
+        private AudioSource audioSource = null;
+
         public float ScalingRate = 1;
         public float TransparentRate = 1;
 
@@ -20,6 +23,7 @@ namespace Apps.UI
             Image.enabled = false;
 
             rectTransform = GetComponent<RectTransform>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         public void StartAnimation()
@@ -64,6 +68,7 @@ namespace Apps.UI
                 color.a = 1;
                 IsAnimating = false;
                 Image.enabled = false;
+                audioSource.PlayOneShot(WaitUpAudio);
             }
             Image.color = color;
         }

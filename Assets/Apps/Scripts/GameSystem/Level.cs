@@ -10,6 +10,8 @@ namespace Apps.GameSystem
         [Range(1, 7)]
         public uint MaxWindSlotNum = 7;
 
+        public int TyphoonNumber = 0;
+
         private void Awake()
         {
             GameManager.Level = this;

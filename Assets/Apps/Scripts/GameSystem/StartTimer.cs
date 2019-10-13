@@ -9,6 +9,10 @@ namespace Apps.UI
     {
         public Text Text = null;
 
+        public AudioClip CountDown321Audio = null;
+        public AudioClip CountDownUpAudio = null;
+        private AudioSource audioSource = null;
+
         public GameObject EnableOn2 = null;
         public GameObject EnableOn1 = null;
         public GameObject EnableOn0 = null;
@@ -23,6 +27,11 @@ namespace Apps.UI
 
         private int CurrentTime = 3;
 
+        public void OnStartGame()
+        {
+            enabled = true;
+        }
+
         void Start()
         {
             WaitTimer = WaitTime;
@@ -32,6 +41,10 @@ namespace Apps.UI
             EnableOn2.SetActive(false);
             EnableOn1.SetActive(false);
             EnableOn0.SetActive(false);
+
+            audioSource = GetComponent<AudioSource>();
+
+            enabled = false;
         }
 
         void Update()
@@ -43,6 +56,7 @@ namespace Apps.UI
                 {
                     IsWaiting = false;
                     Text.text = CurrentTime.ToString();
+                    audioSource.PlayOneShot(CountDown321Audio);
                     return;
                 }
             }
@@ -57,16 +71,19 @@ namespace Apps.UI
                     {
                         EnableOn2.SetActive(true);
                         Text.text = CurrentTime.ToString();
+                        audioSource.PlayOneShot(CountDown321Audio);
                     }
                     else if (CurrentTime == 1)
                     {
                         EnableOn1.SetActive(true);
                         Text.text = CurrentTime.ToString();
+                        audioSource.PlayOneShot(CountDown321Audio);
                     }
                     else if (CurrentTime == 0)
                     {
                         EnableOn0.SetActive(true);
                         Text.text = "Start";
+                        audioSource.PlayOneShot(CountDownUpAudio);
                     }
                     else if (CurrentTime == -1)
                     {

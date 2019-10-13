@@ -36,7 +36,7 @@ namespace Apps.Actor.City
 
         private void SetMeshRendererEnable(bool flag)
         {
-            _MeshRenderer.enabled = flag;
+            _MeshRenderer.enabled = false; // もう赤丸はいらんでしょ！
         }
 
         public void SetTarget(bool flag)
@@ -60,7 +60,7 @@ namespace Apps.Actor.City
 
         void Update()
         {
-            if (Health <= 0)
+            if (Health < 1)
             {
                 GameSystem.GameManager.Level.BreakTarget(this);
                 SetTarget(false);

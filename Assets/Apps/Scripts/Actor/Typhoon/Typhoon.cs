@@ -17,6 +17,7 @@ namespace Apps.Actor.Typhoon
         public Vector2 ScaleShrinkRatioRange = Vector2.one;
         private float ScaleShrinkRatio = 1.0f;
         private List<VectorField.VectorField.VectorInfo> _NearVecorInfoList = new List<VectorField.VectorField.VectorInfo>();
+        public AudioClip PawnedAudio = null;
 
         private void Awake()
         {
@@ -27,6 +28,8 @@ namespace Apps.Actor.Typhoon
 
         private void Start()
         {
+            UI.UIManager.TyphoonSpawnedUI.OnTyphoonSpawned();
+            GetComponent<AudioSource>().PlayOneShot(PawnedAudio);
             InitialLocalScale = transform.localScale;
         }
 

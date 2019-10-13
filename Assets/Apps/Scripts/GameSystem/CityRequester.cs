@@ -34,9 +34,20 @@ namespace Apps.GameSystem
 
         private Actor.City.City GetNextCity()
         {
+            var n = 0;
             while (true)
             {
+                if (n > 16)
+                {
+                    return null;
+                }
+
                 var cityCode = GetNextCityCode();
+                if (cityCode == Actor.City.CityCode.Unknown)
+                {
+                    ++n;
+                    continue;
+                }
                 var cities = Actor.ActorManager.CityList.Cities;
                 foreach (var city in cities)
                 {
@@ -44,6 +55,7 @@ namespace Apps.GameSystem
                     {
                         if (city.IsTarget)
                         {
+                            ++n;
                             continue;
                         }
                         else
@@ -52,7 +64,8 @@ namespace Apps.GameSystem
                         }
                     }
                 }
-                return null;
+                ++n;
+                continue;
             }
         }
 

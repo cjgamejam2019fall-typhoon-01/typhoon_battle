@@ -6,6 +6,8 @@ namespace Apps.Controller
 {
     public class WindGenerator : TapGenerator
     {
+        public AudioClip SetAudio = null;
+
         protected override bool CanGenerate(RaycastHit hit)
         {
             var infoList = UI.UIManager.WindSlotsUI.WindSlotInfoList;
@@ -29,6 +31,7 @@ namespace Apps.Controller
                     info.UI.IsUse = true;
                     info.Image.fillAmount = 0f;
                     info.source = result.GetComponent<Actor.Wind.WindSource>();
+                    GetComponent<AudioSource>().PlayOneShot(SetAudio);
                     break;
                 }
             }
